@@ -1,15 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[62]:
-
-
 import scipy.stats as sc
 import numpy
 import matplotlib.pyplot as plt
 import math
-
-# In[63]:
 
 
 sizes = [10, 50, 1000]
