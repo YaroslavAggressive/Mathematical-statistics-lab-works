@@ -1,9 +1,6 @@
 from scipy.stats import cauchy
 import matplotlib.pyplot as plt
 import numpy as np
-fig, ax = plt.subplots(1, 1)
-
-mean, var, skew, kurt = cauchy.stats(moments='mvsk')
 
 def first_main_task():
     normal_distribution()  # normal distribution for all sizes
