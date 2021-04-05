@@ -1,39 +1,56 @@
 import scipy.stats as sc
-import numpy
-import matplotlib
+import numpy as np
 import math
 
+
 def get_cauchy_sample(size):
-    dens = sc.cauchy()
-    x = numpy.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    y = dens.pdf(x)
-    return y
+    # dens = sc.cauchy.rvs(size=size)
+    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
+    # y = dens.pdf(x)
+    # return y
+    res = sc.cauchy.rvs(size=size)
+    res.sort()
+    return res
+
 
 def get_laplace_sample(size):
-    dens = sc.laplace(loc=0, scale=1 / math.sqrt(2))
-    x = numpy.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    y = dens.pdf(x)
-    return y
+    # dens = sc.laplace.rvs(loc=0, scale=1 / math.sqrt(2), size=size)
+    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
+    # y = dens.pdf(x)
+    # return y
+    res = sc.laplace.rvs(loc=0, scale=1 / math.sqrt(2), size=size)
+    res.sort()
+    return res
+
 
 def get_poisson_sample(size, mu):
-    dens = sc.poisson(mu)
-    x = numpy.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    y = dens.pmf(x)
-    return y
+    # dens = sc.poisson.rvs(mu, size=size)
+    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
+    # y = dens.pmf(x)
+    # return y
+    res = sc.poisson.rvs(mu, size=size)
+    res.sort()
+    return res
 
 
 def get_uniform_sample(size):
-    dens = sc.uniform(loc=0, scale=1)
-    x = numpy.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    y = dens.pdf(x)
-    return y
+    # dens = sc.uniform.rvs(loc=0, scale=1)
+    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
+    # y = dens.pdf(x)
+    # return y
+    res = sc.uniform.rvs(loc=-math.sqrt(3), scale=2 * math.sqrt(3), size=size)
+    res.sort()
+    return res
 
 
 def get_normal_sample(size):
-    dens = sc.norm(0, 1)
-    x = numpy.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    y = dens.pdf(x)  # processing Probability Density Function (PDF) on the interval
-    return y
+    # dens = sc.norm.rvs(loc=0, scale=1, size=size)
+    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
+    # y = dens.pdf(x)  # processing Probability Density Function (PDF) on the interval
+    # return y
+    res = sc.norm.rvs(loc=0, scale=1, size=size)
+    res.sort()
+    return res
 
 
 ########################################################
@@ -106,7 +123,9 @@ def get_dispersion(sample):
     sample_mean = get_sample_mean(sample)
     for i in range(n):
         disp += (sample[i] - sample_mean) ** 2
-    return disp / n
+    return np.std(sample)**2
+    # return disp / (n - 1)
+
 
 ########################################################
 

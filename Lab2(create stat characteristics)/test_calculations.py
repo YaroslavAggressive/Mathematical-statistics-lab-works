@@ -6,9 +6,9 @@ sizes = [10, 100, 1000]
 iterations = 1000
 
 # Counting stat characteristics for Cauchy distribution
-
+print("Cauchy")
 for size in sizes:
-    cauchy_sample = get_cauchy_sample(size)
+    print(size)
     x_ = []  # выборочное среднее
     med_x = []  # выборочная медиана
     z_R = []  # полусумма экстремальных выборочных элементов
@@ -19,6 +19,7 @@ for size in sizes:
     E = []
 
     for i in range(iterations):
+        cauchy_sample = get_cauchy_sample(size)
         x_.append(get_sample_mean(cauchy_sample))
         med_x.append(get_sample_median(cauchy_sample))
         z_R.append(get_half_sum_extrem(cauchy_sample))
@@ -27,15 +28,15 @@ for size in sizes:
 
     statistic_specifications = [x_, med_x, z_R, z_Q, z_tr]
     for lst in statistic_specifications:
-        E.append(get_sample_mean(lst))
-        D.append(get_dispersion(lst))
+        E.append(round(get_sample_mean(lst), 4))
+        D.append(round(get_dispersion(lst), 4))
     print(E)
     print(D)
 
 # Counting stat characteristics for Poisson distribution
-
+print("Poisson")
 for size in sizes:
-    poisson_sample = get_poisson_sample(size, 10)
+    print(size)
     x_ = []  # выборочное среднее
     med_x = []  # выборочная медиана
     z_R = []  # полусумма экстремальных выборочных элементов
@@ -46,6 +47,7 @@ for size in sizes:
     E = []
 
     for i in range(iterations):
+        poisson_sample = get_poisson_sample(size, 10)
         x_.append(get_sample_mean(poisson_sample))
         med_x.append(get_sample_median(poisson_sample))
         z_R.append(get_half_sum_extrem(poisson_sample))
@@ -54,15 +56,15 @@ for size in sizes:
 
     statistic_specifications = [x_, med_x, z_R, z_Q, z_tr]
     for lst in statistic_specifications:
-        E.append(get_sample_mean(lst))
-        D.append(get_dispersion(lst))
+        E.append(round(get_sample_mean(lst), 4))
+        D.append(round(get_dispersion(lst), 4))
     print(E)
     print(D)
 
 # Counting stat characteristics for Laplace distribution
-
+print("Laplace")
 for size in sizes:
-    laplace_sample = get_laplace_sample(size)
+    print(size)
     x_ = []  # выборочное среднее
     med_x = []  # выборочная медиана
     z_R = []  # полусумма экстремальных выборочных элементов
@@ -73,6 +75,7 @@ for size in sizes:
     E = []
 
     for i in range(iterations):
+        laplace_sample = get_laplace_sample(size)
         x_.append(get_sample_mean(laplace_sample))
         med_x.append(get_sample_median(laplace_sample))
         z_R.append(get_half_sum_extrem(laplace_sample))
@@ -81,15 +84,15 @@ for size in sizes:
 
     statistic_specifications = [x_, med_x, z_R, z_Q, z_tr]
     for lst in statistic_specifications:
-        E.append(get_sample_mean(lst))
-        D.append(get_dispersion(lst))
+        E.append(round(get_sample_mean(lst), 4))
+        D.append(round(get_dispersion(lst), 4))
     print(E)
     print(D)
 
 # Counting stat characteristics for Normal distribution
-
+print("Normal")
 for size in sizes:
-    normal_sample = get_normal_sample(size)
+    print(size)
     x_ = []  # выборочное среднее
     med_x = []  # выборочная медиана
     z_R = []  # полусумма экстремальных выборочных элементов
@@ -100,6 +103,7 @@ for size in sizes:
     E = []
 
     for i in range(iterations):
+        normal_sample = get_normal_sample(size)
         x_.append(get_sample_mean(normal_sample))
         med_x.append(get_sample_median(normal_sample))
         z_R.append(get_half_sum_extrem(normal_sample))
@@ -108,15 +112,15 @@ for size in sizes:
 
     statistic_specifications = [x_, med_x, z_R, z_Q, z_tr]
     for lst in statistic_specifications:
-        E.append(get_sample_mean(lst))
-        D.append(get_dispersion(lst))
+        E.append(round(get_sample_mean(lst), 4))
+        D.append(round(get_dispersion(lst), 4))
     print(E)
     print(D)
 
 # Counting stat characteristics for Uniform distribution
-
+print("Uniform")
 for size in sizes:
-    uniform_sample = get_uniform_sample(size)
+    print(size)
     x_ = []  # выборочное среднее
     med_x = []  # выборочная медиана
     z_R = []  # полусумма экстремальных выборочных элементов
@@ -127,6 +131,7 @@ for size in sizes:
     E = []
 
     for i in range(iterations):
+        uniform_sample = get_uniform_sample(size)
         x_.append(get_sample_mean(uniform_sample))
         med_x.append(get_sample_median(uniform_sample))
         z_R.append(get_half_sum_extrem(uniform_sample))
@@ -135,7 +140,7 @@ for size in sizes:
 
     statistic_specifications = [x_, med_x, z_R, z_Q, z_tr]
     for lst in statistic_specifications:
-        E.append(get_sample_mean(lst))
-        D.append(get_dispersion(lst))
+        E.append(round(get_sample_mean(lst), 4))
+        D.append(round(get_dispersion(lst), 4))
     print(E)
     print(D)
