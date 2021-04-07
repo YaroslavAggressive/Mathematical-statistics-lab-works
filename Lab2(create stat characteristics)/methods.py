@@ -4,50 +4,30 @@ import math
 
 
 def get_cauchy_sample(size):
-    # dens = sc.cauchy.rvs(size=size)
-    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    # y = dens.pdf(x)
-    # return y
     res = sc.cauchy.rvs(size=size)
     res.sort()
     return res
 
 
 def get_laplace_sample(size):
-    # dens = sc.laplace.rvs(loc=0, scale=1 / math.sqrt(2), size=size)
-    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    # y = dens.pdf(x)
-    # return y
     res = sc.laplace.rvs(loc=0, scale=1 / math.sqrt(2), size=size)
     res.sort()
     return res
 
 
 def get_poisson_sample(size, mu):
-    # dens = sc.poisson.rvs(mu, size=size)
-    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    # y = dens.pmf(x)
-    # return y
     res = sc.poisson.rvs(mu, size=size)
     res.sort()
     return res
 
 
 def get_uniform_sample(size):
-    # dens = sc.uniform.rvs(loc=0, scale=1)
-    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    # y = dens.pdf(x)
-    # return y
     res = sc.uniform.rvs(loc=-math.sqrt(3), scale=2 * math.sqrt(3), size=size)
     res.sort()
     return res
 
 
 def get_normal_sample(size):
-    # dens = sc.norm.rvs(loc=0, scale=1, size=size)
-    # x = np.linspace(dens.ppf(0.01), dens.ppf(0.99), size)
-    # y = dens.pdf(x)  # processing Probability Density Function (PDF) on the interval
-    # return y
     res = sc.norm.rvs(loc=0, scale=1, size=size)
     res.sort()
     return res

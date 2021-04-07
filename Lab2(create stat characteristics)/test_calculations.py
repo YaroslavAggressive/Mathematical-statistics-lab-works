@@ -1,6 +1,8 @@
 from methods import get_cauchy_sample, get_normal_sample, get_laplace_sample, get_poisson_sample, get_uniform_sample
 from methods import get_sample_mean, get_quartile, get_sample_median, get_sample_variance, get_half_sum_quartiles
 from methods import get_half_sum_extrem, get_truncated_mean, get_dispersion
+import math
+
 
 sizes = [10, 100, 1000]
 iterations = 1000
@@ -17,6 +19,8 @@ for size in sizes:
 
     D = []
     E = []
+    E_plus_D = []
+    E_minus_D = []
 
     for i in range(iterations):
         cauchy_sample = get_cauchy_sample(size)
@@ -30,8 +34,13 @@ for size in sizes:
     for lst in statistic_specifications:
         E.append(round(get_sample_mean(lst), 4))
         D.append(round(get_dispersion(lst), 4))
-    print(E)
-    print(D)
+        E_plus_D.append(round(get_sample_mean(lst) + math.sqrt(get_dispersion(lst)), 4))
+        E_minus_D.append(round(get_sample_mean(lst) - math.sqrt(get_dispersion(lst)), 4))
+
+    print("E = " + str(E))
+    print("D = " + str(D))
+    print("E + sqrt(D) = " + str(E_plus_D))
+    print("E - sqrt(D) = " + str(E_minus_D))
 
 # Counting stat characteristics for Poisson distribution
 print("Poisson")
@@ -45,6 +54,8 @@ for size in sizes:
 
     D = []
     E = []
+    E_plus_D = []
+    E_minus_D = []
 
     for i in range(iterations):
         poisson_sample = get_poisson_sample(size, 10)
@@ -58,8 +69,13 @@ for size in sizes:
     for lst in statistic_specifications:
         E.append(round(get_sample_mean(lst), 4))
         D.append(round(get_dispersion(lst), 4))
-    print(E)
-    print(D)
+        E_plus_D.append(round(get_sample_mean(lst) + math.sqrt(get_dispersion(lst)), 4))
+        E_minus_D.append(round(get_sample_mean(lst) - math.sqrt(get_dispersion(lst)), 4))
+
+    print("E = " + str(E))
+    print("D = " + str(D))
+    print("E + sqrt(D) = " + str(E_plus_D))
+    print("E - sqrt(D) = " + str(E_minus_D))
 
 # Counting stat characteristics for Laplace distribution
 print("Laplace")
@@ -73,6 +89,8 @@ for size in sizes:
 
     D = []
     E = []
+    E_plus_D = []
+    E_minus_D = []
 
     for i in range(iterations):
         laplace_sample = get_laplace_sample(size)
@@ -86,8 +104,13 @@ for size in sizes:
     for lst in statistic_specifications:
         E.append(round(get_sample_mean(lst), 4))
         D.append(round(get_dispersion(lst), 4))
-    print(E)
-    print(D)
+        E_plus_D.append(round(get_sample_mean(lst) + math.sqrt(get_dispersion(lst)), 4))
+        E_minus_D.append(round(get_sample_mean(lst) - math.sqrt(get_dispersion(lst)), 4))
+
+    print("E = " + str(E))
+    print("D = " + str(D))
+    print("E + sqrt(D) = " + str(E_plus_D))
+    print("E - sqrt(D) = " + str(E_minus_D))
 
 # Counting stat characteristics for Normal distribution
 print("Normal")
@@ -101,6 +124,8 @@ for size in sizes:
 
     D = []
     E = []
+    E_plus_D = []
+    E_minus_D = []
 
     for i in range(iterations):
         normal_sample = get_normal_sample(size)
@@ -114,8 +139,13 @@ for size in sizes:
     for lst in statistic_specifications:
         E.append(round(get_sample_mean(lst), 4))
         D.append(round(get_dispersion(lst), 4))
-    print(E)
-    print(D)
+        E_plus_D.append(round(get_sample_mean(lst) + math.sqrt(get_dispersion(lst)), 4))
+        E_minus_D.append(round(get_sample_mean(lst) - math.sqrt(get_dispersion(lst)), 4))
+
+    print("E = " + str(E))
+    print("D = " + str(D))
+    print("E + sqrt(D) = " + str(E_plus_D))
+    print("E - sqrt(D) = " + str(E_minus_D))
 
 # Counting stat characteristics for Uniform distribution
 print("Uniform")
@@ -129,6 +159,8 @@ for size in sizes:
 
     D = []
     E = []
+    E_plus_D = []
+    E_minus_D = []
 
     for i in range(iterations):
         uniform_sample = get_uniform_sample(size)
@@ -142,5 +174,10 @@ for size in sizes:
     for lst in statistic_specifications:
         E.append(round(get_sample_mean(lst), 4))
         D.append(round(get_dispersion(lst), 4))
-    print(E)
-    print(D)
+        E_plus_D.append(round(get_sample_mean(lst) + math.sqrt(get_dispersion(lst)), 4))
+        E_minus_D.append(round(get_sample_mean(lst) - math.sqrt(get_dispersion(lst)), 4))
+
+    print("E = " + str(E))
+    print("D = " + str(D))
+    print("E + sqrt(D) = " + str(E_plus_D))
+    print("E - sqrt(D) = " + str(E_minus_D))
